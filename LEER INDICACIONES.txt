@@ -1,0 +1,35 @@
+NORMAS PARA PROGRAMACIÓN DE PROYECTOS
+======================================
+
+----------------------------------------------------------------------
+NOMBRE E ID PARA CONTROLES DE FORMULARIOS EN EL CODIGO DE CADA PAGINA
+----------------------------------------------------------------------
+Se usaran PREFIJOS segun cada control antes del nombre a asignar
+
+ TEXBOX      => txtNombre / txt_nombre
+ TEXTAREA    => txtNombre / txt_nombre
+ RADIOBUTTON => rdbNombre / rdb_nombre
+ CHECKBOX    => chkNombre / chk_nombre
+ BUTTON      => btnNombre / btn_nombre
+ FORM        => frmNombre / frm_nombre
+ TABLE       => tblNombre / tbl_nombre
+ SELECT      => lstNombre / lst_nombre
+ FILE        => fleNombre / fle_nombre
+
+ IMPORTANTE: 
+ - Nombre es el identificador unico para cada control y no puede repetirse en la misma pagina
+ - Para el Nombre, el máximo numero de caracteres debe ser de 6 (para facilitar la programación)
+ - Todos los controles que cargaran datos o enviarán datos a bases de datos, deben tener NAME y ID
+
+ ----------------------------------------
+ BASE DE DATOS - REGLAS GENERALES
+ ----------------------------------------
+ - El nombres de la base de datos para todos los proyectos debe ser db_info_apps
+ - Las tablas deben tener el prefijo inf_ ejemplo: inf_estudiantes, inf_profesores etc., segun corresponda (esto para mejorar algunos apectos de seguridad)
+
+
+
+andres leal proptech
+juliana.cardona  fintech
+n.pineda@galapago   - galapago agro contructores - nicolas pineda - galapp
+german - presidencia@altco.co  asoci colombiana de legaltech altco.com.org
