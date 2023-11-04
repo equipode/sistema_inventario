@@ -28,15 +28,15 @@ class ExtraerDatos extends ConsultasDB
 	// ****************************************************************************
     //MUESTRA LISTADO DE EMPLEADOS
 	function listadoProducts($start=0, $regsCant = 0){
-		$sql = "SELECT * FROM products";
+		$sql = "SELECT * FROM productos";
 		if ($regsCant > 0 )
-			 $sql = "SELECT * from products $start,$regsCant";
+			 $sql = "SELECT * from productos $start,$regsCant";
 		$lista = $this->consulta_generales($sql);	
 		return $lista;
 	}
 	// DETALLE DE EMPLEADOS SELECICONADA SEGUN ID
 	function productsDetalle($idu){
-		$sql = "SELECT * from products where id=$idu ";
+		$sql = "SELECT * from productos where id=$idu ";
 		$lista = $this->consulta_generales($sql);	
 		return $lista;
 	}

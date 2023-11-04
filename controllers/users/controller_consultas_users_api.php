@@ -28,20 +28,18 @@ class ExtraerDatos extends ConsultasDB
 	// ****************************************************************************
     //MUESTRA LISTADO DE EMPLEADOS
 	function listadoUsers($start=0, $regsCant = 0){
-		$sql = "SELECT * FROM users";
+		$sql = "SELECT * FROM usuarios";
 		if ($regsCant > 0 )
-			 $sql = "SELECT * from users $start,$regsCant";
+			 $sql = "SELECT * from usuarios $start,$regsCant";
 		$lista = $this->consulta_generales($sql);	
 		return $lista;
 	}
 	// DETALLE DE EMPLEADOS SELECICONADA SEGUN ID
 	function usersDetalle($idu){
-		$sql = "SELECT * from users where pk_user=$idu ";
+		$sql = "SELECT * from usuarios where pk_user=$idu ";
 		$lista = $this->consulta_generales($sql);	
 		return $lista;
 	}
 	
 	
 }//fin CLASE
-
-?>
