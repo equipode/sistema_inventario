@@ -5,14 +5,10 @@
     $method = $_SERVER['REQUEST_METHOD'];
     header("Content-Type: Application/json");
     switch ($method) {
-        case 'GET':
-            $objAPI->getAllUsers();                        
-            break;
-
         case 'POST':
-            $objAPI->saveUser();
+            $objAPI->updateUser();
             break;
-        
+            
         default:
             $objAPI->nullRequest();
             break;

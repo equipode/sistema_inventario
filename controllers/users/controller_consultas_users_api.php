@@ -40,6 +40,46 @@ class ExtraerDatos extends ConsultasDB
 		$lista = $this->consulta_generales($sql);	
 		return $lista;
 	}
+
+	function saveUser($usuario,$password,$foto,$rol){
+		$objDBO = new DBConfig();
+        $objDBO->config();
+        $objDBO->conexion();
+		$passw = sha1($password);
+
+		$ejecucion = $objDBO->operaciones("INSERT INTO usuarios(usuario,password,foto_user,rol)
+														values('$usuario', '$passw', '$foto', $rol)");
+
+		return $ejecucion;
+	}
+
+	function updateUser($id,$usuario,$password,$foto,$rol){
+		$objDBO = new DBConfig();
+        $objDBO->config();
+        $objDBO->conexion();
+		$passw = sha1($password);
+
+		$ejecucion = $objDBO->operaciones("UPDATE usuarios SET usuario='$usuario', password='$passw', foto_user='$foto', rol=$rol WHERE pk_user=$id");
+
+		return $ejecucion;
+	}
+
+	function deleteUser($id){
+		$objDBO = new DBConfig();
+        $objDBO->config();
+        $objDBO->conexion();
+
+		$ejecucion = $objDBO->operaciones("DELETE usuarios WHERE pk_user=$id");
+
+		return $ejecucion;
+	}
+		
+		
+
+       
+
+
+	
 	
 	
 }//fin CLASE

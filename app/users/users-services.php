@@ -38,19 +38,70 @@ class usersAPI
         }
     }
 
-    function saveProduct()
+    function validarCampo($campo, $nombreCampo)
+{
+    if (isset($_POST[$campo]) && !empty($_POST[$campo])) {
+        return $_POST[$campo];
+    } else if ($_POST[$campo] == '0') {
+        return $_POST[$campo];
+    } else {
+        $resp = array("error" => "El campo '" . $nombreCampo . "' es requerido.");
+        echo json_encode($resp);
+       exit();
+    }
+}
+
+    function saveUser()
     {
-        echo json_encode(array("data" => null, "error" => "0", "msg" => "Guardar",));
+        $objDB = new ExtraerDatos();
+
+        $usuario = $this->validarCampo('user', 'user');
+        $password = $this->validarCampo('pass', 'pass');
+        $foto = $this->validarCampo('photo', 'photo');
+        $rolUser = $this->validarCampo('rol', 'rol');
+
+        $ejecucion = $objDB->saveUser($usuario,$password,$foto,$rolUser);
+
+        // echo json_encode(array($usuario,$password,$foto,$rolUser));
+        if($ejecucion){
+            echo json_encode(array("data"=>null, "error" => "0", "msg" => "Usuario registrado :)",));
+        }else{
+            echo json_encode(array("data"=>null, "error" => "1", "msg" => "No se pudo registrar :(",));
+        }
     }
 
-    function updateProduct()
+    function updateUser()
     {
-        echo json_encode(array("data" => null, "error" => "0", "msg" => "Actualizar",));
+        $objDB = new ExtraerDatos();
+
+        $usuario = $this->validarCampo('user', 'user');
+        $password = $this->validarCampo('pass', 'pass');
+        $foto = $this->validarCampo('photo', 'photo');
+        $rolUser = $this->validarCampo('rol', 'rol');
+        $id = $this->validarCampo('iduser', 'iduser');
+
+        $ejecucion = $objDB->updateUser($id,$usuario,$password,$foto,$rolUser);
+
+        if($ejecucion){
+            echo json_encode(array("data"=>null, "error" => "0", "msg" => "Usuario actualizado :)",));
+        }else{
+            echo json_encode(array("data"=>null, "error" => "1", "msg" => "No se pudo actualizar :(",));
+        }
     }
 
-    function deleteProduct()
+    function deleteUser()
     {
-        echo json_encode(array("data" => null, "error" => "0", "msg" => "Eliminar",));
+        $objDB = new ExtraerDatos();
+
+        $id = $this->validarCampo('iduser', 'iduser');
+
+        $ejecucion = $objDB->deleteUser($id);
+
+        if($ejecucion){
+            echo json_encode(array("data"=>null, "error" => "0", "msg" => "Usuario eliminado :)",));
+        }else{
+            echo json_encode(array("data"=>null, "error" => "1", "msg" => "No se pudo eliminar :(",));
+        }
     }
 
     function nullRequest()
