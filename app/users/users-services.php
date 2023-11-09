@@ -51,7 +51,7 @@ class usersAPI
 
         $ejecucion = $objDB->saveUser($usuario, $password, $foto, $rolUser);
 
-        echo json_encode(array($usuario, $password, $foto, $rolUser));
+        // echo json_encode(array($usuario, $password, $foto, $rolUser));
         if ($ejecucion) {
             echo json_encode(array("data" => null, "error" => "0", "msg" => "Usuario registrado :)",));
         } else {
