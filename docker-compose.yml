@@ -1,0 +1,11 @@
+# docker-compose up -d
+version: '3.8'
+
+services:
+  mysqldb:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456789
+      - MYSQL_DATABASE=pruebas
+    ports:
+      - 3306:3306
