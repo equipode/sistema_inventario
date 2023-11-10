@@ -36,11 +36,42 @@ class ExtraerDatos extends ConsultasDB
 	}
 	// DETALLE DE EMPLEADOS SELECICONADA SEGUN ID
 	function productsDetalle($idu){
-		$sql = "SELECT * from productos where id=$idu ";
+		$sql = "SELECT * from productos where pk_prod=$idu ";
 		$lista = $this->consulta_generales($sql);	
 		return $lista;
 	}
-	
+	function saveProduc($referencia, $nombre_producto, $descripcion,$fotoproduct, $ubicacionBodega, $precio_product, $existencia, $stock, $estado){
+		$objDBO = new DBConfig();
+        $objDBO->config();
+        $objDBO->conexion();
+
+		$ejecucion = $objDBO->operaciones("INSERT INTO productos(referencia, nombre_producto, descripción, foto_produc, ubicacionBodega, precio_product, existencia, stock,estado)
+														values('$referencia', '$nombre_producto', '$descripcion','$fotoproduct', '$ubicacionBodega', $precio_product, $existencia, $stock, $estado)");
+
+		return $ejecucion;
+	}
+
+	function updateUser($id,$usuario,$password,$foto,$rol){
+		$objDBO = new DBConfig();
+        $objDBO->config();
+        $objDBO->conexion();
+		$passw = sha1($password);
+
+		$ejecucion = $objDBO->operaciones("UPDATE usuarios SET usuario='$usuario', password='$passw', foto_user='$foto', rol=$rol WHERE pk_user=$id");
+
+		return $ejecucion;
+	}
+
+	function deleteUser($id){
+		$objDBO = new DBConfig();
+        $objDBO->config();
+        $objDBO->conexion();
+
+		$ejecucion = $objDBO->operaciones("DELETE usuarios WHERE pk_user=$id");
+
+		return $ejecucion;
+	}
+		
 	
 }//fin CLASE
 
