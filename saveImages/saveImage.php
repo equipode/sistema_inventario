@@ -1,6 +1,6 @@
 <?php
 
-include '../env/enviroment.php';
+include '../../env/enviroment.php';
 
 function handleFileUpload($file, $folder)
 {
@@ -18,7 +18,7 @@ function handleFileUpload($file, $folder)
                 $fullname = explode(".", basename($file['name'])); // variabe temporal para sacar el nombre y separarlo de la extension
                 $NombreOriginal = $fullname[0]; //Obtenemos el nombre original del archivo
                 $temporal = $file['tmp_name']; //Obtenemos la ruta Original del archivo
-                $Destino = "../" . $fotoUser . $NombreOriginal . "_" . $postname . $ext; //Creamos una ruta de destino con la variable ruta y el nombre original del archivo 
+                $Destino = "../../" . $fotoUser . $NombreOriginal . "_" . $postname . $ext; //Creamos una ruta de destino con la variable ruta y el nombre original del archivo 
                 $fotoUser = $fotoUser . $NombreOriginal . "_" . $postname . $ext; //Esto se guarda en el campo imagend e la base de dato
                 if (copy($temporal, $Destino)) { //Movemos el archivo temporal a la ruta especificada               
                     $msgfile = "Imagen subida.";
