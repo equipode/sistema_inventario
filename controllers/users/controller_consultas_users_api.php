@@ -41,6 +41,12 @@ class ExtraerDatos extends ConsultasDB
 		return $lista;
 	}
 
+	function usersSearch($usuario){
+		$sql = "SELECT * from usuarios where usuario LIKE '%$usuario%' ";
+		$lista = $this->consulta_generales($sql);	
+		return $lista;
+	}
+
 	function saveUser($usuario,$password,$foto,$rol){
 		$objDBO = new DBConfig();
         $objDBO->config();
@@ -53,13 +59,35 @@ class ExtraerDatos extends ConsultasDB
 		return $ejecucion;
 	}
 
-	function updateUser($id,$usuario,$password,$foto,$rol){
+	function updateUser($id,$usuario,$rol){
 		$objDBO = new DBConfig();
         $objDBO->config();
         $objDBO->conexion();
-		$passw = sha1($password);
+		// $passw = sha1($password);
 
-		$ejecucion = $objDBO->operaciones("UPDATE usuarios SET usuario='$usuario', password='$passw', foto_user='$foto', rol=$rol WHERE pk_user=$id");
+		$ejecucion = $objDBO->operaciones("UPDATE usuarios SET usuario='$usuario', rol=$rol WHERE pk_user=$id");
+
+		return $ejecucion;
+	}
+
+	function updatePasswordUser($id,$password){
+		$objDBO = new DBConfig();
+        $objDBO->config();
+        $objDBO->conexion();
+		// $passw = sha1($password);
+
+		$ejecucion = $objDBO->operaciones("UPDATE usuarios SET password='$password' WHERE pk_user=$id");
+
+		return $ejecucion;
+	}
+
+	function updateUserfoto($id,$usuario,$foto,$rol){
+		$objDBO = new DBConfig();
+        $objDBO->config();
+        $objDBO->conexion();
+		// $passw = sha1($password);
+
+		$ejecucion = $objDBO->operaciones("UPDATE usuarios SET usuario='$usuario', foto_user='$foto', rol=$rol WHERE pk_user=$id");
 
 		return $ejecucion;
 	}
@@ -69,7 +97,7 @@ class ExtraerDatos extends ConsultasDB
         $objDBO->config();
         $objDBO->conexion();
 
-		$ejecucion = $objDBO->operaciones("DELETE usuarios WHERE pk_user=$id");
+		$ejecucion = $objDBO->operaciones("DELETE FROM usuarios WHERE pk_user=$id");
 
 		return $ejecucion;
 	}
