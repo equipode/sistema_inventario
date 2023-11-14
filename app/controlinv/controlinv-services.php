@@ -60,23 +60,6 @@ class controlInvAPI
 
     }
 
-    function updateControlInv()
-    {
-        $objDB = new ExtraerDatos();
-
-        $entrada = validarCampo('entrada', 'entrada');
-        $id_control= validarCampo('id_control', 'id_control');
-
-    
-    $ejecucion = $objDB->updateControlInv($id_control, $entrada);
-
-        if ($ejecucion) {
-            echo json_encode(array("data" => null, "error" => "0", "msg" => "entrada reportada:)",));
-        } else {
-            echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo reportar la entrada:(",));
-        }
-
-    }
 
 
 
