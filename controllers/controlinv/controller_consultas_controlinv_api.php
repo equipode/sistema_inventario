@@ -69,49 +69,30 @@ class ExtraerDatos extends ConsultasDB
 		return $ejecucion;
 	}
 
-	function updateUser($id, $usuario, $rol)
+	function updateControlInv($id, $entrada)
 	{
 		$objDBO = new DBConfig();
 		$objDBO->config();
 		$objDBO->conexion();
-		// $passw = sha1($password);
 
-		$ejecucion = $objDBO->operaciones("UPDATE usuarios SET usuario='$usuario', rol=$rol WHERE pk_user=$id");
+		$fecha_entrada = date('Y-m-d');
+		$hora_entrada = date('H:i:s');
+		
+		
+		$ejecucion = $objDBO->operaciones("UPDATE contros_inventario SET entrada=$entrada, fecha_entrada='$fecha_entrada', hora_entrada='$hora_entrada' WHERE pk_control=$id");
 
 		return $ejecucion;
 	}
 
-	function updatePasswordUser($id, $password)
-	{
-		$objDBO = new DBConfig();
-		$objDBO->config();
-		$objDBO->conexion();
-		// $passw = sha1($password);
+	
 
-		$ejecucion = $objDBO->operaciones("UPDATE usuarios SET password='$password' WHERE pk_user=$id");
-
-		return $ejecucion;
-	}
-
-	function updateUserfoto($id, $usuario, $foto, $rol)
-	{
-		$objDBO = new DBConfig();
-		$objDBO->config();
-		$objDBO->conexion();
-		// $passw = sha1($password);
-
-		$ejecucion = $objDBO->operaciones("UPDATE usuarios SET usuario='$usuario', foto_user='$foto', rol=$rol WHERE pk_user=$id");
-
-		return $ejecucion;
-	}
-
-	function deleteUser($id)
+	function deleteControlInv($id)
 	{
 		$objDBO = new DBConfig();
 		$objDBO->config();
 		$objDBO->conexion();
 
-		$ejecucion = $objDBO->operaciones("DELETE FROM usuarios WHERE pk_user=$id");
+		$ejecucion = $objDBO->operaciones("DELETE FROM contros_inventario WHERE pk_control=$id");
 
 		return $ejecucion;
 	}

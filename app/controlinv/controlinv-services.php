@@ -41,39 +41,6 @@ class controlInvAPI
         }
     }
 
-    // function searchUser()
-    // {
-    //     $objDB = new ExtraerDatos();
-    //     $data = array();
-
-    //     if (isset($_GET["search"])) {
-    //         $data = $objDB->usersSearch($_GET["search"]);
-        
-
-    //     $users = array();
-    //     $users["data"] = array();
-
-    //     if ($data) {
-    //         foreach ($data as $row) {
-    //             $item = array(
-    //                 "pk" => $row["pk_user"],
-    //                 "usu" => $row["usuario"],
-    //                 "pass" => $row["password"],
-    //                 "photo" => $row["foto_user"],
-    //                 "rolUser" => $row["rol"],
-    //             );
-    //             array_push($users["data"], $item);
-    //         }
-    //         $users["msg"] = "OK";
-    //         $users["error"] = "0";
-    //         echo json_encode($users);
-    //     } else {
-    //         echo json_encode(array("data" => null, "error" => "1", "msg" => "NO hay datos de usuarios",));
-    //     }
-    // }else {
-    //         echo json_encode(array("data" => null, "error" => "1", "msg" => "Debe enviar el search",));
-    //     }
-    // }
 
     function saveControlInv()
     {
@@ -93,72 +60,62 @@ class controlInvAPI
 
     }
 
-    function updateUser()
+    function updateControlInv()
     {
         $objDB = new ExtraerDatos();
 
-        $usuario = validarCampo('user', 'user');
-        // $password = validarCampo('pass', 'pass');
-        // $foto = validarCampo('photo', 'photo');
-        $rolUser = validarCampo('rol', 'rol');
-        $id = validarCampo('iduser', 'iduser');
-        if(isset($_FILES["photo"]["name"]) && $_FILES["photo"]["name"] != null){
-            $foto = $_FILES["photo"];
-            $folder = "usuarios";
-            $rutafoto = handleFileUpload($foto, $folder);
+        $entrada = validarCampo('entrada', 'entrada');
+        $id_control= validarCampo('id_control', 'id_control');
 
-        $ejecucion = $objDB->updateUserfoto($id, $usuario, $rutafoto, $rolUser);
+    
+    $ejecucion = $objDB->updateControlInv($id_control, $entrada);
 
         if ($ejecucion) {
-            echo json_encode(array("data" => null, "error" => "0", "msg" => "Usuario actualizado :)",));
+            echo json_encode(array("data" => null, "error" => "0", "msg" => "entrada reportada:)",));
         } else {
-            echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo actualizar :(",));
+            echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo reportar la entrada:(",));
         }
 
-    }else{
-        $ejecucion = $objDB->updateUser($id, $usuario, $rolUser);
-
-        if ($ejecucion) {
-            echo json_encode(array("data" => null, "error" => "0", "msg" => "Usuario actualizado :)",));
-        } else {
-            echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo actualizar :(",));
-        }
-    }
     }
 
-    function updatePassword()
+
+
+        function updateControlInv()
     {
         $objDB = new ExtraerDatos();
 
-        $password = validarCampo('pass', 'pass');
-        $id = validarCampo('iduser', 'iduser');
-     
+        $entrada = validarCampo('entrada', 'entrada');
+        $id_control= validarCampo('id_control', 'id_control');
 
-        $ejecucion = $objDB->updatePasswordUser($id, $password);
+    
+    $ejecucion = $objDB->updateControlInv($id_control, $entrada);
 
         if ($ejecucion) {
-            echo json_encode(array("data" => null, "error" => "0", "msg" => "Contraseña actualizada :)",));
+            echo json_encode(array("data" => null, "error" => "0", "msg" => "entrada reportada:)",));
         } else {
-            echo json_encode(array("data" => null, "error" => "1", "msg" => "La contraseña no se pudo actualizar :(",));
+            echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo reportar la entrada:(",));
         }
-
 
     }
 
-    function deleteUser()
+    function deleteControlInv()
     {
         $objDB = new ExtraerDatos();
 
-        $id = validarCampo('iduser', 'iduser');
+        $id_control= validarCampo('id_control', 'id_control');
 
-        $ejecucion = $objDB->deleteUser($id);
+    
+    $ejecucion = $objDB->deleteControlInv($id_control);
 
         if ($ejecucion) {
-            echo json_encode(array("data" => null, "error" => "0", "msg" => "Usuario eliminado :)",));
+            echo json_encode(array("data" => null, "error" => "0", "msg" => "se eliminó el reporte:)",));
         } else {
-            echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo eliminar :(",));
+            echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo eliminar el reporte:(",));
         }
+
     }
+
+
 
     function nullRequest()
     {
