@@ -6,7 +6,7 @@ class ConsultasDB extends DBConfig {
 	function consulta_generales($sql){
 		$this->config();
 		$this->conexion(); 
-		  
+		    
   		$records = $this->Consultas($sql);		 		  		  		  
 
   		$this->close();		

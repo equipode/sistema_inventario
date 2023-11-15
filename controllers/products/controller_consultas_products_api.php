@@ -51,13 +51,13 @@ class ExtraerDatos extends ConsultasDB
 		return $ejecucion;
 	}
 
-	function updateUser($id,$usuario,$password,$foto,$rol){
+	function updateProduct($id,$usuario,$password,$foto,$rol){
 		$objDBO = new DBConfig();
         $objDBO->config();
         $objDBO->conexion();
 		$passw = sha1($password);
 
-		$ejecucion = $objDBO->operaciones("UPDATE usuarios SET usuario='$usuario', password='$passw', foto_user='$foto', rol=$rol WHERE pk_user=$id");
+		$ejecucion = $objDBO->operaciones("UPDATE productos SET re='$usuario', password='$passw', foto_user='$foto', rol=$rol WHERE pk_user=$id");
 
 		return $ejecucion;
 	}

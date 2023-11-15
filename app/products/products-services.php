@@ -1,6 +1,6 @@
 <?php
 include "../../controllers/products/controller_consultas_products_api.php";
-
+include "../../validations/validateCampos.php";
 
 class productsAPI
 {
@@ -45,21 +45,68 @@ class productsAPI
 
     function saveProduct()
     {
-        echo json_encode(array("data" => null, "error" => "0", "msg" => "Guardar",));
+        $objDB = new ExtraerDatos();
+
+        $referencia = validarCampo('refer', 'refer');
+        $nombre_producto = validarCampo('nomProdu', 'nomProdu');
+        $descripcion = validarCampo('descri', 'descri');
+        $foto_product = validarCampo('photo', 'photo');
+        $ubicacionBodega = validarCampo('ubicaciBodega', 'ubicaciBodega');
+        $precio_product = validarCampo('precio', 'precio');
+        $stock = validarCampo('stok', 'stok');
+        $existencia = validarCampo('exist', 'exist');
+        $estado = validarCampo('esta', 'esta');
+
+        $ejecucion = $objDB->saveProduc($referencia, $nombre_producto, $descripcion, $foto_product, $ubicacionBodega, $precio_product, $stock, $existencia, $estado );
+
+        if($ejecucion){
+            echo json_encode(array("data" => null, "error" => "0", "msg" => "Producto Guardado",));
+        }else{
+            echo json_encode(array("data" => null, "error" => "0", "msg" => "error al guardar",));
+        }
+        
     }
 
     function updateProduct()
     {
+        $objDB = new ExtraerDatos();
+
+        $referencia = validarCampo('refer', 'refer');
+        $nombre_producto = validarCampo('nomProdu', 'nomProdu');
+        $descripcion = validarCampo('descri', 'descri');
+        $foto_product = validarCampo('photo', 'photo');
+        $ubicacionBodega = validarCampo('ubicaciBodega', 'ubicaciBodega');
+        $precio_product = validarCampo('precio', 'precio');
+        $stock = validarCampo('stok', 'stok');
+        $existencia = validarCampo('exist', 'exist');
+        $estado = validarCampo('esta', 'esta');
+
+        $ejecucion = $objDB->saveProduc($referencia, $nombre_producto, $descripcion, $foto_product, $ubicacionBodega, $precio_product, $stock, $existencia, $estado );
+
+        if ($ejecucion) {
+            echo json_encode(array("data" => null, "error" => "0", "msg" => "Usuario actualizado :)",));
+        } else {
+
         echo json_encode(array("data" => null, "error" => "0", "msg" => "Actualizar",));
     }
 
     function deleteProduct()
     {
-        echo json_encode(array("data" => null, "error" => "0", "msg" => "Eliminar",));
-    }
+        $objDB = new ExtraerDatos();
 
+        $id = validarCampo('pk', 'pk+');
+
+        $ejecucion = $objDB->deleteUser($id);
+
+        if ($ejecucion) {
+            echo json_encode(array("data" => null, "error" => "0", "msg" => "Usuario eliminado :)",));
+        } else {
+            echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo eliminar :(",));
+        }
+    }
     function nullRequest()
     {
         echo json_encode(array("data" => null, "error" => "0", "msg" => "Solicitud Nula",));
     }
+}
 }
