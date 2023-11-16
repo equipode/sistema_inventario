@@ -45,29 +45,30 @@ class ExtraerDatos extends ConsultasDB
         $objDBO->config();
         $objDBO->conexion();
 
-		$ejecucion = $objDBO->operaciones("INSERT INTO productos(referencia, nombre_producto, descripción, foto_produc, ubicacionBodega, precio_product, existencia, stock,estado)
+		$ejecucion = $objDBO->operaciones("INSERT INTO productos(referencia, nombre_producto, descripcion, foto_product, ubicacionBodega, precio_product, existencia, stock, estado)
 														values('$referencia', '$nombre_producto', '$descripcion','$fotoproduct', '$ubicacionBodega', $precio_product, $existencia, $stock, $estado)");
 
 		return $ejecucion;
 	}
 
-	function updateProduct($id,$usuario,$password,$foto,$rol){
+	
+
+	function updateProduct($referencia, $nombre_producto, $descripcion,$fotoproduct, $ubicacionBodega, $precio_product, $existencia, $stock, $estado, $id){
 		$objDBO = new DBConfig();
         $objDBO->config();
         $objDBO->conexion();
-		$passw = sha1($password);
 
-		$ejecucion = $objDBO->operaciones("UPDATE productos SET re='$usuario', password='$passw', foto_user='$foto', rol=$rol WHERE pk_user=$id");
+		$ejecucion = $objDBO->operaciones("UPDATE productos SET referencia='$referencia', nombre_producto='$nombre_producto', descripcion='$descripcion', foto_product='$fotoproduct', ubicacionBodega='$ubicacionBodega', precio_product=$precio_product, existencia=$existencia, stock=$stock, estado=$estado  WHERE pk_prod=$id");
 
 		return $ejecucion;
 	}
 
-	function deleteUser($id){
+	function deleteProduct($id){
 		$objDBO = new DBConfig();
         $objDBO->config();
         $objDBO->conexion();
 
-		$ejecucion = $objDBO->operaciones("DELETE usuarios WHERE pk_user=$id");
+		$ejecucion = $objDBO->operaciones("DELETE FROM productos WHERE pk_prod=$id");
 
 		return $ejecucion;
 	}

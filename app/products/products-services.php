@@ -71,6 +71,7 @@ class productsAPI
     {
         $objDB = new ExtraerDatos();
 
+        $id = validarCampo('id', 'id');
         $referencia = validarCampo('refer', 'refer');
         $nombre_producto = validarCampo('nomProdu', 'nomProdu');
         $descripcion = validarCampo('descri', 'descri');
@@ -81,32 +82,35 @@ class productsAPI
         $existencia = validarCampo('exist', 'exist');
         $estado = validarCampo('esta', 'esta');
 
-        $ejecucion = $objDB->saveProduc($referencia, $nombre_producto, $descripcion, $foto_product, $ubicacionBodega, $precio_product, $stock, $existencia, $estado );
+        $ejecucion = $objDB->updateProduct($referencia, $nombre_producto, $descripcion, $foto_product, $ubicacionBodega, $precio_product, $stock, $existencia, $estado, $id );
 
         if ($ejecucion) {
-            echo json_encode(array("data" => null, "error" => "0", "msg" => "Usuario actualizado :)",));
+            echo json_encode(array("data" => null, "error" => "0", "msg" => "Producto actualizado :)",));
         } else {
 
-        echo json_encode(array("data" => null, "error" => "0", "msg" => "Actualizar",));
+        echo json_encode(array("data" => null, "error" => "0", "msg" => "error al Actualizar",));
     }
 
-    function deleteProduct()
+    
+  
+}
+
+function deleteProduct()
     {
         $objDB = new ExtraerDatos();
 
-        $id = validarCampo('pk', 'pk+');
+        $id = validarCampo('pk', 'pk');
 
-        $ejecucion = $objDB->deleteUser($id);
+        $ejecucion = $objDB->deleteProduct($id);
 
         if ($ejecucion) {
-            echo json_encode(array("data" => null, "error" => "0", "msg" => "Usuario eliminado :)",));
+            echo json_encode(array("data" => null, "error" => "0", "msg" => "producto eliminado :)",));
         } else {
-            echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo eliminar :(",));
+            echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo eliminar el producto :(",));
         }
     }
-    function nullRequest()
-    {
-        echo json_encode(array("data" => null, "error" => "0", "msg" => "Solicitud Nula",));
-    }
+function nullRequest()
+{
+    echo json_encode(array("data" => null, "error" => "0", "msg" => "Solicitud Nula",));
 }
 }

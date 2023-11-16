@@ -5,12 +5,9 @@
     $method = $_SERVER['REQUEST_METHOD'];
     header("Content-Type: Application/json");
     switch ($method) {
-        case 'GET':
-            $objAPI->getAllProducts();                        
-            break;
 
         case 'POST':
-            $objAPI->saveProduct();
+            $objAPI->deleteProduct();
             break;
 
         default:
