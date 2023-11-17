@@ -32,8 +32,7 @@
 
                     <form id="loginform" method="POST">
                         <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Correo" id="user" name="user"
-                                maxlength="32">
+                            <input type="email" class="form-control" placeholder="Correo" id="user" name="user" maxlength="32">
 
                             <div class="input-group-append">
                                 <div class="input-group-text">
@@ -42,8 +41,7 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="password" class="form-control" placeholder="Contraseña" id="pass" name="pass"
-                                maxlength="32">
+                            <input type="password" class="form-control" placeholder="Contraseña" id="pass" name="pass" maxlength="32">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>

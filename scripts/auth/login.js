@@ -24,14 +24,14 @@ botonLogin.addEventListener("click", (event) => {
         } else {
             loading.style.display = 'block';
             fetch(`${baseUrl}/auth/auth_api.php`, {
-                    method: 'POST',
-                    body: new FormData(Formdata)
-                }).then(response => response.json())
+                method: 'POST',
+                body: new FormData(Formdata)
+            }).then(response => response.json())
                 .then(resp => {
                     loading.style.display = 'none';
                     if (resp.error === '0') {
-                        localStorage.removeItem('data');
-                        localStorage.setItem('data', JSON.stringify(resp.data));
+                        localStorage.removeItem('token');
+                        localStorage.setItem('token', JSON.stringify(resp.data));
                         rediret('views_admin/usuarios_listados.php');
                     } else {
                         respuest(resp.msg, 'info');

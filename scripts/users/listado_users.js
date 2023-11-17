@@ -1,3 +1,10 @@
+let OBJtoken = localStorage.getItem('token');
+let token = JSON.parse(OBJtoken);
+
+if (!token) {
+    rediret('../index.php');
+}
+
 const baseUrl = enviroments.baseUrl;
 const contenido = document.getElementById('contenido');
 
@@ -18,7 +25,7 @@ fetch(`${baseUrl}/users/users_api.php`)
                 // content += '</tr>';
 
                 content += `
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-12 col-sm-12 col-md-12">
                     <div class="card bg-light">
                         <div class="card-body pt-0">
                             <div class="row">
@@ -33,7 +40,7 @@ fetch(`${baseUrl}/users/users_api.php`)
                                     </ul>
                                 </div>
                                 <div class="col-5 text-center">
-                                    <img src="${usuario.photo}" alt="" class="img-circle img-fluid">
+                                    <img src="${usuario.photo}" alt="" width="150px" class="img-circle img-fluid">
                                 </div>
                             </div>
                         </div>
