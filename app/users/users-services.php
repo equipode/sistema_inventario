@@ -46,29 +46,29 @@ class usersAPI
 
         if (isset($_GET["search"])) {
             $data = $objDB->usersSearch($_GET["search"]);
-        
 
-        $users = array();
-        $users["data"] = array();
 
-        if ($data) {
-            foreach ($data as $row) {
-                $item = array(
-                    "pk" => $row["pk_user"],
-                    "usu" => $row["usuario"],
-                    "pass" => $row["password"],
-                    "photo" => $row["foto_user"],
-                    "rolUser" => $row["rol"],
-                );
-                array_push($users["data"], $item);
+            $users = array();
+            $users["data"] = array();
+
+            if ($data) {
+                foreach ($data as $row) {
+                    $item = array(
+                        "pk" => $row["pk_user"],
+                        "usu" => $row["usuario"],
+                        "pass" => $row["password"],
+                        "photo" => $row["foto_user"],
+                        "rolUser" => $row["rol"],
+                    );
+                    array_push($users["data"], $item);
+                }
+                $users["msg"] = "OK";
+                $users["error"] = "0";
+                echo json_encode($users);
+            } else {
+                echo json_encode(array("data" => null, "error" => "1", "msg" => "NO hay datos de usuarios",));
             }
-            $users["msg"] = "OK";
-            $users["error"] = "0";
-            echo json_encode($users);
         } else {
-            echo json_encode(array("data" => null, "error" => "1", "msg" => "NO hay datos de usuarios",));
-        }
-    }else {
             echo json_encode(array("data" => null, "error" => "1", "msg" => "Debe enviar el search",));
         }
     }
@@ -81,23 +81,22 @@ class usersAPI
         $password = validarCampo('pass', 'pass');
         // $foto = validarCampo('photo', 'photo');
         $rolUser = validarCampo('rol', 'rol');
-        if(isset($_FILES["photo"]["name"]) && $_FILES["photo"]["name"] != null){
+        if (isset($_FILES["photo"]["name"]) && $_FILES["photo"]["name"] != null) {
             $foto = $_FILES["photo"];
             $folder = "usuarios";
             $rutafoto = handleFileUpload($foto, $folder);
 
-        $ejecucion = $objDB->saveUser($usuario, $password, $rutafoto, $rolUser);
+            $ejecucion = $objDB->saveUser($usuario, $password, $rutafoto, $rolUser);
 
-        // echo json_encode(array($usuario, $password, $foto, $rolUser));
-        if ($ejecucion) {
-            echo json_encode(array("data" => null, "error" => "0", "msg" => "Usuario registrado :)",));
+            // echo json_encode(array($usuario, $password, $foto, $rolUser));
+            if ($ejecucion) {
+                echo json_encode(array("data" => null, "error" => "0", "msg" => "Usuario registrado :)",));
+            } else {
+                echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo registrar :(",));
+            }
         } else {
-            echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo registrar :(",));
+            echo json_encode(array("data" => null, "error" => "1", "msg" => "Debe enviar una imagen (photo) :(",));
         }
-
-    }else{
-        echo json_encode(array("data" => null, "error" => "1", "msg" => "Debe enviar una imagen (photo) :(",));
-    }
     }
 
     function updateUser()
@@ -105,32 +104,30 @@ class usersAPI
         $objDB = new ExtraerDatos();
 
         $usuario = validarCampo('user', 'user');
-        // $password = validarCampo('pass', 'pass');
-        // $foto = validarCampo('photo', 'photo');
         $rolUser = validarCampo('rol', 'rol');
         $id = validarCampo('iduser', 'iduser');
-        if(isset($_FILES["photo"]["name"]) && $_FILES["photo"]["name"] != null){
+
+        if (isset($_FILES["photo"]["name"]) && $_FILES["photo"]["name"] != null) {
             $foto = $_FILES["photo"];
             $folder = "usuarios";
             $rutafoto = handleFileUpload($foto, $folder);
 
-        $ejecucion = $objDB->updateUserfoto($id, $usuario, $rutafoto, $rolUser);
+            $ejecucion = $objDB->updateUserfoto($id, $usuario, $rutafoto, $rolUser);
 
-        if ($ejecucion) {
-            echo json_encode(array("data" => null, "error" => "0", "msg" => "Usuario actualizado :)",));
+            if ($ejecucion) {
+                echo json_encode(array("data" => null, "error" => "0", "msg" => "Usuario actualizado :)",));
+            } else {
+                echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo actualizar :(",));
+            }
         } else {
-            echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo actualizar :(",));
-        }
+            $ejecucion = $objDB->updateUser($id, $usuario, $rolUser);
 
-    }else{
-        $ejecucion = $objDB->updateUser($id, $usuario, $rolUser);
-
-        if ($ejecucion) {
-            echo json_encode(array("data" => null, "error" => "0", "msg" => "Usuario actualizado :)",));
-        } else {
-            echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo actualizar :(",));
+            if ($ejecucion) {
+                echo json_encode(array("data" => null, "error" => "0", "msg" => "Usuario actualizado :)",));
+            } else {
+                echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo actualizar :(",));
+            }
         }
-    }
     }
 
     function updatePassword()
@@ -139,7 +136,7 @@ class usersAPI
 
         $password = validarCampo('pass', 'pass');
         $id = validarCampo('iduser', 'iduser');
-     
+
 
         $ejecucion = $objDB->updatePasswordUser($id, $password);
 
@@ -148,8 +145,6 @@ class usersAPI
         } else {
             echo json_encode(array("data" => null, "error" => "1", "msg" => "La contraseña no se pudo actualizar :(",));
         }
-
-
     }
 
     function deleteUser()

@@ -55,16 +55,15 @@ class productsAPI
         $precio_product = validarCampo('precio', 'precio');
         $stock = validarCampo('stok', 'stok');
         $existencia = validarCampo('exist', 'exist');
-        $estado = validarCampo('esta', 'esta');
+        $estado = validarCampo('estado', 'estado');
 
-        $ejecucion = $objDB->saveProduc($referencia, $nombre_producto, $descripcion, $foto_product, $ubicacionBodega, $precio_product, $stock, $existencia, $estado );
+        $ejecucion = $objDB->saveProduc($referencia, $nombre_producto, $descripcion, $foto_product, $ubicacionBodega, $precio_product, $stock, $existencia, $estado);
 
-        if($ejecucion){
+        if ($ejecucion) {
             echo json_encode(array("data" => null, "error" => "0", "msg" => "Producto Guardado",));
-        }else{
+        } else {
             echo json_encode(array("data" => null, "error" => "0", "msg" => "error al guardar",));
         }
-        
     }
 
     function updateProduct()
@@ -80,22 +79,19 @@ class productsAPI
         $precio_product = validarCampo('precio', 'precio');
         $stock = validarCampo('stok', 'stok');
         $existencia = validarCampo('exist', 'exist');
-        $estado = validarCampo('esta', 'esta');
+        $estado = validarCampo('estado', 'estado');
 
-        $ejecucion = $objDB->updateProduct($referencia, $nombre_producto, $descripcion, $foto_product, $ubicacionBodega, $precio_product, $stock, $existencia, $estado, $id );
+        $ejecucion = $objDB->updateProduct($referencia, $nombre_producto, $descripcion, $foto_product, $ubicacionBodega, $precio_product, $stock, $existencia, $estado, $id);
 
         if ($ejecucion) {
             echo json_encode(array("data" => null, "error" => "0", "msg" => "Producto actualizado :)",));
         } else {
 
-        echo json_encode(array("data" => null, "error" => "0", "msg" => "error al Actualizar",));
+            echo json_encode(array("data" => null, "error" => "0", "msg" => "error al Actualizar",));
+        }
     }
 
-    
-  
-}
-
-function deleteProduct()
+    function deleteProduct()
     {
         $objDB = new ExtraerDatos();
 
@@ -109,8 +105,8 @@ function deleteProduct()
             echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo eliminar el producto :(",));
         }
     }
-function nullRequest()
-{
-    echo json_encode(array("data" => null, "error" => "0", "msg" => "Solicitud Nula",));
-}
+    function nullRequest()
+    {
+        echo json_encode(array("data" => null, "error" => "0", "msg" => "Solicitud Nula",));
+    }
 }
