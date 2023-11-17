@@ -13,56 +13,61 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
-    <link rel="icon" href="imgs/logos/Artboard 8@1080x-100.jpg">
+    <link rel="stylesheet" href="styles/auth.css">
+    <!-- <link rel="icon" href="imgs/logos/Artboard 8@1080x-100.jpg"> -->
 </head>
 <!-- y de esta manera ↑ con la pagina de iniciar ↓ sesion o registrarse -->
 
-<body class="hold-transition login-page" id="fondo">
+<body>
 
-    <div class="login-box">
-        <div class="login-logo">
-            <!-- <a href="#"><b>Ven</b>tas</a> -->
-        </div>
-
-        <div class="card">
-            <div class="card-body login-card-body">
-                <p class="login-box-msg"></p>
-                <div id="login"></div>
-
-                <form id="loginform" method="POST">
-                    <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Correo" id="user" name="user" maxlength="32">
-
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Contraseña" id="pass" name="pass" maxlength="32">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-4">
-                            <button id="btnverificar" class="btn btn-primary btn-block">Iniciar</button>
-                        </div><br>
-
-                        <!-- /.col -->
-                    </div>
-                </form>
-
+    <div class="login">
+        <div class="login-box">
+            <div class="login-logo">
+                <!-- <a href="#"><b>Ven</b>tas</a> -->
             </div>
-            <!-- /.login-card-body -->
+
+            <div class="card">
+                <div class="card-body login-card-body">
+                    <p class="login-box-msg"></p>
+                    <div id="login"></div>
+
+                    <form id="loginform" method="POST">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Correo" id="user" name="user"
+                                maxlength="32">
+
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" placeholder="Contraseña" id="pass" name="pass"
+                                maxlength="32">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-4">
+                                <button id="btnverificar" class="btn btn-primary btn-block">INGRESAR</button>
+                            </div><br>
+
+                            <!-- /.col -->
+                        </div>
+                    </form>
+
+                </div>
+                <!-- /.login-card-body -->
+            </div>
         </div>
+        <!-- /.login-box -->
+
     </div>
-    <!-- /.login-box -->
 
     <script src="env/enviroment.js"></script>
     <script src="scripts/sweetalert/sweetalert.min.js"></script>
