@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
     <link rel="stylesheet" href="styles/auth.css">
-    <!-- <link rel="icon" href="imgs/logos/Artboard 8@1080x-100.jpg"> -->
+    <link rel="icon" href="imgs/logo.jpg">
 </head>
 <!-- y de esta manera ↑ con la pagina de iniciar ↓ sesion o registrarse -->
 
@@ -28,8 +28,7 @@
 
             <div class="card">
                 <div class="card-body login-card-body">
-                    <p class="login-box-msg"></p>
-                    <div id="login"></div>
+                    <div id="loading">VERIFICANDO SUS CREDENCIALES</div>
 
                     <form id="loginform" method="POST">
                         <div class="input-group mb-3">
