@@ -35,7 +35,7 @@ class usersAPI
             $users["error"] = "0";
             echo json_encode($users);
         } else {
-            echo json_encode(array("data" => 0, "error" => "1", "msg" => "NO hay datos de usuarios",));
+            echo json_encode(array("data" => null, "error" => "1", "msg" => "NO hay datos de usuarios",));
         }
     }
 
@@ -66,7 +66,7 @@ class usersAPI
                 $users["error"] = "0";
                 echo json_encode($users);
             } else {
-                echo json_encode(array("data" => 0, "error" => "1", "msg" => "NO hay datos de usuarios",));
+                echo json_encode(array("data" => null, "error" => "1", "msg" => "NO hay datos de usuarios",));
             }
         } else {
             echo json_encode(array("data" => null, "error" => "1", "msg" => "Debe enviar el search",));

@@ -15,7 +15,7 @@ fetch(`${baseUrl}/users/users_api.php`)
     .then(resp => {
         console.log(resp.data)
         let content = '';
-        if (resp.data === 0) {
+        if (resp.data === null) {
             content = 'no hay usuarios registrados';
         } else {
             resp.data.forEach((usuario) => {
