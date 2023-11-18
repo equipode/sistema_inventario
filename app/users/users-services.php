@@ -147,11 +147,15 @@ class usersAPI
         }
     }
 
-    function deleteUser()
+    function deleteUser($datos)
     {
+        // echo json_encode(array("idsd" => $datos['id']));
+
+        $id = $datos['id'];
+
         $objDB = new ExtraerDatos();
 
-        $id = validarCampo('iduser', 'iduser');
+        // $id = validarCampo('iduser', 'iduser');
 
         $ejecucion = $objDB->deleteUser($id);
 
