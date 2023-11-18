@@ -1,0 +1,38 @@
+@startuml Sistema_inventario
+
+Class usuarios{
+   pk_user: BIGINT 
+   usuario: CHAR 
+   password: CHAR
+   foto_user: VARCHAR
+   rol: INT
+}
+
+Class productos{
+   pk_prod: BIGINT 
+   referencia: CHAR
+   nombre_producto: CHAR
+   descripcion: CHAR
+   foto_product: VARCHAR
+   ubicacionBodega: VARCHAR
+   precio_product: DOUBLE
+   existencia: INT
+   stock: INT
+   estado: INT
+}
+
+Class contros_inventario{
+   pk_control: BIGINT
+   salida: INT
+   entrada: INT
+   fecha_salida: DATE
+   hora_salida: TIME
+   fecha_entrada: DATE
+   hora_entrada: TIME
+   product_fk: BIGINT
+}
+
+
+productos *-- "Salida" contros_inventario
+
+@enduml
