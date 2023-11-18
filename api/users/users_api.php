@@ -1,5 +1,6 @@
 <?php
     include "../../app/users/users-services.php";
+    include "../../config/config.php";
     $objAPI = new usersAPI();
 
     $method = $_SERVER['REQUEST_METHOD'];
@@ -8,13 +9,9 @@
         case 'GET':
             $objAPI->getAllUsers();                        
             break;
-
-        case 'POST':
-            $objAPI->saveUser();
-            break;
         
         default:
-            $objAPI->nullRequest();
+        echo json_encode(array("data" => null, "error" => "3", "msg" => $errorResponse[3]));
             break;
     }    
 ?>

@@ -1,13 +1,13 @@
 <?php
-    include "../../app/users/users-services-update.php";
-    include "../../config/config.php";
+    include "../../app/users/users-services-create.php";
+    include '../../config/config.php';
     $objAPI = new usersAPI();
 
     $method = $_SERVER['REQUEST_METHOD'];
     header("Content-Type: Application/json");
     switch ($method) {
         case 'POST':
-            $objAPI->updateUser();
+            $objAPI->saveUser();
             break;
             
         default:

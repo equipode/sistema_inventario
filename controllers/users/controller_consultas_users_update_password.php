@@ -4,13 +4,13 @@ require_once("../../models/models_admin.php");
 class DBOperations extends DBConfig
 {
 
-	// GET
-	function consulta_generales($sql)
+	// CREAR, UPDATE, DELETE
+	function dbOperaciones($sql)
 	{
 		$this->config();
 		$this->conexion();
 
-		$records = $this->Consultas($sql);
+		$records = $this->Operaciones($sql);
 
 		$this->close();
 		return $records;
@@ -28,20 +28,13 @@ class ExtraerDatos extends DBOperations
 	// ****************************************************************************
 	// Agregue aqui debajo el resto de Funciones - Se ha dejado  Listado y detalle
 	// ****************************************************************************
-	//MUESTRA LISTADO DE EMPLEADOS
-	function listadoUsers($start = 0, $regsCant = 0)
+	function updatePasswordUser($id, $password)
 	{
-		$sql = "SELECT * FROM usuarios";
-		if ($regsCant > 0)
-			$sql = "SELECT * from usuarios $start,$regsCant";
-		$lista = $this->consulta_generales($sql);
-		return $lista;
+		$passw = sha1($password);
+
+		$ejecucion = $this->dbOperaciones("UPDATE usuarios SET password='$passw' WHERE pk_user=$id");
+
+		return $ejecucion;
 	}
-	// DETALLE DE EMPLEADOS SELECICONADA SEGUN ID
-	function usersDetalle($idu)
-	{
-		$sql = "SELECT * from usuarios where pk_user=$idu ";
-		$lista = $this->consulta_generales($sql);
-		return $lista;
-	}
+	
 }//fin CLASE

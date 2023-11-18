@@ -1,16 +1,18 @@
 <?php
-    include "../../app/users/users-services.php";
+    include "../../app/users/users-services-update-password.php";
+    include "../../config/config.php";
     $objAPI = new usersAPI();
 
     $method = $_SERVER['REQUEST_METHOD'];
     header("Content-Type: Application/json");
     switch ($method) {
-        case 'POST':
-            $objAPI->updatePassword();
+        case 'PUT':
+            $_POST = json_decode(file_get_contents('php://input'), true);
+            $objAPI->updatePassword($_POST);
             break;
             
         default:
-            $objAPI->nullRequest();
+        echo json_encode(array("data" => null, "error" => "3", "msg" => $errorResponse[3]));
             break;
     }    
 ?>

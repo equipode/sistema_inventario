@@ -15,6 +15,7 @@ class DBOperations extends DBConfig
 		$this->close();
 		return $records;
 	}
+
 }
 
 
@@ -28,20 +29,11 @@ class ExtraerDatos extends DBOperations
 	// ****************************************************************************
 	// Agregue aqui debajo el resto de Funciones - Se ha dejado  Listado y detalle
 	// ****************************************************************************
-	//MUESTRA LISTADO DE EMPLEADOS
-	function listadoUsers($start = 0, $regsCant = 0)
+	function usersSearch($usuario)
 	{
-		$sql = "SELECT * FROM usuarios";
-		if ($regsCant > 0)
-			$sql = "SELECT * from usuarios $start,$regsCant";
+		$sql = "SELECT * from usuarios where usuario LIKE '%$usuario%' ";
 		$lista = $this->consulta_generales($sql);
 		return $lista;
 	}
-	// DETALLE DE EMPLEADOS SELECICONADA SEGUN ID
-	function usersDetalle($idu)
-	{
-		$sql = "SELECT * from usuarios where pk_user=$idu ";
-		$lista = $this->consulta_generales($sql);
-		return $lista;
-	}
+	
 }//fin CLASE
