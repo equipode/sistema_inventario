@@ -1,9 +1,10 @@
 <?php
 session_start();
 require_once("../../models/models_admin.php");
-class ConsultasDB extends DBConfig
+class DBOperations extends DBConfig
 {
 
+	// GET
 	function consulta_generales($sql)
 	{
 		$this->config();
@@ -14,13 +15,25 @@ class ConsultasDB extends DBConfig
 		$this->close();
 		return $records;
 	}
+
+	// CREAR, UPDATE, DELETE
+	function dbOperaciones($sql)
+	{
+		$this->config();
+		$this->conexion();
+
+		$records = $this->Operaciones($sql);
+
+		$this->close();
+		return $records;
+	}
 }
 
 
 /**
  * IMPLEMENTACION DE ACCESO A CONSULTAS PARA PROTEGER MAS LA VISTA
  */
-class ExtraerDatos extends ConsultasDB
+class ExtraerDatos extends DBOperations
 {
 
 
@@ -53,12 +66,9 @@ class ExtraerDatos extends ConsultasDB
 
 	function saveUser($usuario, $password, $foto, $rol)
 	{
-		$objDBO = new DBConfig();
-		$objDBO->config();
-		$objDBO->conexion();
 		$passw = sha1($password);
 
-		$ejecucion = $objDBO->operaciones("INSERT INTO usuarios(usuario,password,foto_user,rol)
+		$ejecucion = $this->dbOperaciones("INSERT INTO usuarios(usuario,password,foto_user,rol)
 														values('$usuario', '$passw', '$foto', $rol)");
 
 		return $ejecucion;
@@ -66,47 +76,34 @@ class ExtraerDatos extends ConsultasDB
 
 	function updateUser($id, $usuario, $rol)
 	{
-		$objDBO = new DBConfig();
-		$objDBO->config();
-		$objDBO->conexion();
 		// $passw = sha1($password);
 
-		$ejecucion = $objDBO->operaciones("UPDATE usuarios SET usuario='$usuario', rol=$rol WHERE pk_user=$id");
+		$ejecucion = $this->dbOperaciones("UPDATE usuarios SET usuario='$usuario', rol=$rol WHERE pk_user=$id");
 
 		return $ejecucion;
 	}
 
 	function updatePasswordUser($id, $password)
 	{
-		$objDBO = new DBConfig();
-		$objDBO->config();
-		$objDBO->conexion();
 		$passw = sha1($password);
 
-		$ejecucion = $objDBO->operaciones("UPDATE usuarios SET password='$passw' WHERE pk_user=$id");
+		$ejecucion = $this->dbOperaciones("UPDATE usuarios SET password='$passw' WHERE pk_user=$id");
 
 		return $ejecucion;
 	}
 
 	function updateUserfoto($id, $usuario, $foto, $rol)
 	{
-		$objDBO = new DBConfig();
-		$objDBO->config();
-		$objDBO->conexion();
-		// $passw = sha1($password);
 
-		$ejecucion = $objDBO->operaciones("UPDATE usuarios SET usuario='$usuario', foto_user='$foto', rol=$rol WHERE pk_user=$id");
+		$ejecucion = $this->dbOperaciones("UPDATE usuarios SET usuario='$usuario', foto_user='$foto', rol=$rol WHERE pk_user=$id");
 
 		return $ejecucion;
 	}
 
 	function deleteUser($id)
 	{
-		$objDBO = new DBConfig();
-		$objDBO->config();
-		$objDBO->conexion();
 
-		$ejecucion = $objDBO->operaciones("DELETE FROM usuarios WHERE pk_user=$id");
+		$ejecucion = $this->dbOperaciones("DELETE FROM usuarios WHERE pk_user=$id");
 
 		return $ejecucion;
 	}
