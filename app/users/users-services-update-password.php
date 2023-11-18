@@ -5,17 +5,26 @@ class usersAPI
 {
     function updatePassword($datos)
     {
-        $objDB = new ExtraerDatos();
+        if ($datos) {
 
-        $password = $datos['pass'];
-        $id = $datos['iduser'];
+            if (isset($datos['pass']) && isset($datos['iduser'])) {
+                $objDB = new ExtraerDatos();
 
-        $ejecucion = $objDB->updatePasswordUser($id, $password);
+                $password = $datos['pass'];
+                $id = $datos['iduser'];
 
-        if ($ejecucion) {
-            echo json_encode(array("data" => null, "error" => "0", "msg" => "Contraseña actualizada :)",));
+                $ejecucion = $objDB->updatePasswordUser($id, $password);
+
+                if ($ejecucion) {
+                    echo json_encode(array("data" => null, "error" => "0", "msg" => "Contraseña actualizada :)",));
+                } else {
+                    echo json_encode(array("data" => null, "error" => "1", "msg" => "La contraseña no se pudo actualizar :(",));
+                }
+            } else {
+                echo json_encode(array("data" => null, "error" => "1", "msg" => "Falta el pass y el iduser",));
+            }
         } else {
-            echo json_encode(array("data" => null, "error" => "1", "msg" => "La contraseña no se pudo actualizar :(",));
+            echo json_encode(array("data" => null, "error" => "1", "msg" => "Faltan datos",));
         }
     }
 }
