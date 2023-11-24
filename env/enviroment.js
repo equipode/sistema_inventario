@@ -1,3 +1,3 @@
 const enviroments = {
-    baseUrl: 'http://localhost:60/sistema_inventario/api'
+    baseUrl: 'http://localhost:80/sistema_inventario/api'
 }
