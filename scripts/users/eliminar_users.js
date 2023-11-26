@@ -39,6 +39,8 @@ btneleminar.addEventListener('click', (event) => {
         }).then(response => response.json())
         .then(resp => {
             console.log(resp)
+            respuest('Usuario eliminado :)', 'success');
+            setTimeout(rediret, 1500, 'usuarios_listados.php')
         })
 
 })

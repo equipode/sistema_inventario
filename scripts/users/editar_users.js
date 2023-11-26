@@ -41,6 +41,8 @@ btnguardar.addEventListener('click', (event) => {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            respuest('Usuario editado :)', 'success');
+            setTimeout(rediret, 1500, 'usuarios_listados.php')
         })
         .catch(error => console.error('Error:', error));
 })

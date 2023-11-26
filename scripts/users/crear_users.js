@@ -31,6 +31,7 @@ btnguardar.addEventListener('click', (event) => {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            respuest('Usuario creado :)', 'success');
         })
         .catch(error => console.error('Error:', error));
 })
