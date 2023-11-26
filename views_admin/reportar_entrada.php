@@ -97,7 +97,7 @@
     <script src="../env/enviroment.js"></script>
     <script src="../scripts/sweetalert/sweetalert.min.js"></script>
     <script src="../scripts/sweetalert/funciones.js"></script>
-    <script src="../scripts/users/listado_users.js"></script>
+    <script src="../scripts/control_inventario/reportar_entrada.js"></script>
 
     <?php include 'includes/footer_principal.php'; ?>
 
