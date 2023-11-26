@@ -25,8 +25,7 @@ fetch(`${baseUrl}/users/users_api.php`)
                 // content += '</tr>';
 
                 content += `
-                <div class="col-12 col-sm-12 col-md-12">
-                    <div class="card bg-light">
+                <div class="card bg-light">
                         <div class="card-body pt-0">
                             <div class="row">
                                 <div class="col-7">
@@ -53,7 +52,6 @@ fetch(`${baseUrl}/users/users_api.php`)
                             </div>
                         </div>
                     </div>
-                </div>
                 `
             });
 

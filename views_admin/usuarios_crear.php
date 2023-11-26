@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Crear usuario</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../templates/AdminLTE-3.0.5/plugins/fontawesome-free/css/all.min.css">
@@ -68,10 +68,10 @@
             <!-- /.card-header -->
             <div class="card">
             <div class="card-header bg-indigo">
-              <h3 class="card-title">Formulario de Datos </h3>
+              <h3 class="card-title">¡Crear usuario!</h3></h3>
             </div>
             <!-- Para controles de formularios siempre usar etiqueta FORM -->
-            <form role="form">
+            <form role="form" method="POST" enctype="multipart/form-data">
               <div class="card-body">
 
                 <div class="row">
@@ -79,31 +79,26 @@
                   <!-- Control Inputbox ejemplo -->
                   <div class="col-md-12 col-sm-12 col-12">
                     <div class="form-group">
-                      <label for="txtNombre">Nombre </label>
-                      <input type="text" class="form-control" id="txtNombre" name="txtNombre" placeholder="Nombre">
+                      <label for="txtUser">Usuario</label>
+                      <input type="text" class="form-control" id="txtUser" name="txtUser" placeholder="Digite usuario...">
                     </div> 
-                  </div>  
-
+                  </div>
+                  
                   <!-- Control Inputbox ced -->
                   <div class="col-md-12 col-sm-12 col-12">
                     <div class="form-group">
-                      <label for="txtCedula">Cedula</label>
-                      <input type="text" class="form-control" id="txtCedula" name="txtCedula" placeholder="Digite cedula">
+                      <label for="txtContraseña">Contraseña</label>
+                      <input type="text" class="form-control" id="txtContraseña" name="txtContraseña" placeholder="Digite su contraseña">
                     </div> 
                   </div> 
 
-                  <!-- Control de Lista Desplegable -->
                   <div class="col-md-12 col-sm-12 col-12">
                     <div class="form-group">
-                      <label>Tipo de Documento (Select)</label>
-                      <select class="form-control" name="lstTipoc" id="lstTipoc">
-                        <option value="0">Seleccionar...</option>
-                        <option value="1">Cedula</option>
-                        <option value="2">Tarjeta Identidad</option>
-                        <option value="3">Cedula extranjeria</option>                    
-                        <option value="4">Otro</option>                    
-                      </select>
-                    </div> 
+                        <label>Selecciona un rol</label>
+                        <select class="form-control" id="rol">
+                          <option value="1">Administrador</option>
+                        </select>
+                      </div>
                   </div>
 
                   <!-- Control FileUpload ejemplo -->                
@@ -118,35 +113,12 @@
                       </div>
                     </div>
                   </div>
-
-                  <!-- Control RadioButton ejemplo -->
-                  <div class="col-md-12 col-sm-12 col-12">                    
-                    <div class="form-group">
-                      <label>Sexo (Radio button)</label>
-                      <div class="custom-control custom-radio">
-                        <input class="custom-control-input" type="radio" id="rdbSexo1" name="rdbSexo">
-                        <label for="rdbSexo1" class="custom-control-label">Hombre</label>
-                      </div>
-                      <div class="custom-control custom-radio">
-                        <input class="custom-control-input" type="radio" id="rdbSexo2" name="rdbSexo">
-                        <label for="rdbSexo2" class="custom-control-label">Mujer</label>
-                      </div>
-                    </div>
-                  </div>   
-
-                  <div class="col-md-12 col-sm-12 col-12">                    
-                    <div class="form-group">
-                      <label>Coloque una Descripción (Textarea)</label>
-                      <textarea class="form-control" rows="3"  placeholder="Describa ..." name="txtDesc" id="txtDesc"></textarea>
-                    </div>  
-                  </div>
-
                 </div>  <!-- /.fin row -->   
                 
               </div>  <!-- /.fin card-body -->
 
               <div class="card-footer">
-                <button type="submit" class="btn btn-success">Enviar</button>
+                <button id="btn_guardar" class="btn btn-success">Enviar</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>
               </div>
 
@@ -155,26 +127,9 @@
           </div>
 
         </div><!-- Fin contenido formulario -->
-        
-<!-- ESTADISTICAS DE REGISTROS -->
+
          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-info">
-              <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Bookmarks</span>
-                <span class="info-box-number">41,410</span>
-
-                <div class="progress">
-                  <div class="progress-bar" style="width: 70%"></div>
-                </div>
-                <span class="progress-description">
-                  70% Increase in 30 Days
-                </span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
+           <img src="../imgs/crear_usuario/user.jpg"  width="500px" height="580px" alt=""> 
           </div>
 
 
@@ -203,21 +158,12 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="../templates/AdminLTE-3.0.5/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="../templates/AdminLTE-3.0.5/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../templates/AdminLTE-3.0.5/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../env/enviroment.js"></script>
+  <script src="../scripts/sweetalert/sweetalert.min.js"></script>
+  <script src="../scripts/sweetalert/funciones.js"></script>
+  <script src="../scripts/users/crear_users.js"></script>
 
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="../templates/AdminLTE-3.0.5/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../templates/AdminLTE-3.0.5/dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="../templates/AdminLTE-3.0.5/dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../templates/AdminLTE-3.0.5/dist/js/demo.js"></script>
+  <?php include 'includes/footer_principal.php'; ?>
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title></title>
+    <title>Listado de usuarios</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../templates/AdminLTE-3.0.5/plugins/fontawesome-free/css/all.min.css">
@@ -63,11 +63,12 @@
                 <div class="row">
                     <!-- COLUMNA DE TABLA DE DATOS  -->
 
+                <div class="col-12 col-sm-12 col-md-12">
+                   <div id="contenido"></div>
+                    
+                </div>
 
 
-                    <div id="contenido">
-
-                    </div>
 
 
 
