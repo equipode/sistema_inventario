@@ -45,9 +45,9 @@ fetch(`${baseUrl}/users/users_api.php`)
                         </div>
                         <div class="card-footer">
                             <div class="text-right">
-                                <a href="#"
+                                <a href="usuarios_editar.php?id=${usuario.pk}"
                                    title="editar" class="bnt btn-xs btn-info"><i class="fa fa-edit"></i></a>
-                                <a href="#"
+                                <a href="usuarios_eliminar.php?id=${usuario.pk}"
                                    title="eliminar" class="bnt btn-xs btn-danger"><i class="fa fa-trash"></i></a>
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Crear usuario</title>
+	<title>Editar usuario</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../templates/AdminLTE-3.0.5/plugins/fontawesome-free/css/all.min.css">
@@ -42,7 +42,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Creacion de Usuario</h1>
+            <h1>Editar Usuario</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -68,7 +68,7 @@
             <!-- /.card-header -->
             <div class="card">
             <div class="card-header bg-indigo">
-              <h3 class="card-title">¡Crear usuario!</h3></h3>
+              <h3 class="card-title">¡Editar usuario!</h3></h3>
             </div>
             <!-- Para controles de formularios siempre usar etiqueta FORM -->
             <form role="form" method="POST" enctype="multipart/form-data">
@@ -84,14 +84,6 @@
                     </div> 
                   </div>
 
-                  <!-- Control Inputbox ced -->
-                  <div class="col-md-12 col-sm-12 col-12">
-                    <div class="form-group">
-                      <label for="txtContraseña">Contraseña</label>
-                      <input type="text" class="form-control" id="txtContraseña" name="txtContraseña" placeholder="Digite su contraseña">
-                    </div> 
-                  </div> 
-
                   <div class="col-md-12 col-sm-12 col-12">
                     <div class="form-group">
                         <label>Selecciona un rol</label>
@@ -99,6 +91,10 @@
                           <option value="1">Administrador</option>
                         </select>
                       </div>
+                  </div>
+
+                  <div class="col-md-12 col-sm-12 col-12">
+                    <img id="image" width="200" height="200" alt="">
                   </div>
 
                   <!-- Control FileUpload ejemplo -->                
@@ -129,7 +125,7 @@
         </div><!-- Fin contenido formulario -->
 
          <div class="col-md-3 col-sm-6 col-12">
-           <img src="../imgs/crear_usuario/user.jpg"  width="500px" height="580px" alt=""> 
+           <img src="../imgs/editar_usuario/edit.png"  width="300px" height="300px" alt=""> 
           </div>
 
 
@@ -161,7 +157,7 @@
   <script src="../env/enviroment.js"></script>
   <script src="../scripts/sweetalert/sweetalert.min.js"></script>
   <script src="../scripts/sweetalert/funciones.js"></script>
-  <script src="../scripts/users/crear_users.js"></script>
+  <script src="../scripts/users/editar_users.js"></script>
 
   <?php include 'includes/footer_principal.php'; ?>
 
