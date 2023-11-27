@@ -65,10 +65,10 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header bg-success">
-                                <h3 class="card-title">salida</h3>
+                                <h3 class="card-title">HISTORIAL DE SALIDA</h3>
                             </div>
-                            <div class="card-body p-0">
-                                <table class="table table-striped">
+                            <div class="card-body table-responsive p-0" style="height: 500px;">
+                                <table class="table table-head-fixed text-nowrap">
                                     <thead>
                                         <tr>
                                             <th>HORA</th>

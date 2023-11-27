@@ -30,6 +30,8 @@ class controlInvAPI
                     "fecha_egreso" => $row["fecha_salida"],
                     "hora_egreso" => $row["hora_salida"],
                     "productofk" => $row["product_fk"],
+                    "nombre_product" => $row["nombre_producto"],
+                    "photo_producto" => $row["foto_product"],
                 );
                 array_push($controlInvs["data"], $item);
             }
@@ -47,55 +49,52 @@ class controlInvAPI
         $objDB = new ExtraerDatos();
 
         $salida = validarCampo('salid', 'salid');
-        $producfk= validarCampo('fkproducto', 'fkproducto');
+        $producfk = validarCampo('fkproducto', 'fkproducto');
 
-    
-    $ejecucion = $objDB->saveControlinventario($salida, $producfk);
+
+        $ejecucion = $objDB->saveControlinventario($salida, $producfk);
 
         if ($ejecucion) {
             echo json_encode(array("data" => null, "error" => "0", "msg" => "salida reportada:)",));
         } else {
             echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo reportar salida:(",));
         }
-
     }
 
 
 
 
-        function updateControlInv()
+    function updateControlInv()
     {
         $objDB = new ExtraerDatos();
 
         $entrada = validarCampo('entrada', 'entrada');
-        $id_control= validarCampo('id_control', 'id_control');
+        $id_control = validarCampo('id_control', 'id_control');
 
-    
-    $ejecucion = $objDB->updateControlInv($id_control, $entrada);
+
+        $ejecucion = $objDB->updateControlInv($id_control, $entrada);
 
         if ($ejecucion) {
             echo json_encode(array("data" => null, "error" => "0", "msg" => "entrada reportada:)",));
         } else {
             echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo reportar la entrada:(",));
         }
-
     }
 
     function deleteControlInv()
     {
         $objDB = new ExtraerDatos();
 
-        $id_control= validarCampo('id_control', 'id_control');
+        $id_control = validarCampo('id_control', 'id_control');
 
-    
-    $ejecucion = $objDB->deleteControlInv($id_control);
+
+        $ejecucion = $objDB->deleteControlInv($id_control);
 
         if ($ejecucion) {
             echo json_encode(array("data" => null, "error" => "0", "msg" => "se eliminó el reporte:)",));
         } else {
             echo json_encode(array("data" => null, "error" => "1", "msg" => "No se pudo eliminar el reporte:(",));
         }
-
     }
 
 
