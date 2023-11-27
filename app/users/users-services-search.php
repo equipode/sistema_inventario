@@ -6,6 +6,7 @@ class usersAPI
 {
     function searchUser()
     {
+        include '../../config/config.php';
         $objDB = new ExtraerDatos();
         $data = array();
 
@@ -31,7 +32,7 @@ class usersAPI
                 $users["error"] = "0";
                 echo json_encode($users);
             } else {
-                echo json_encode(array("data"=>null, "error"=>"4", "msg"=>$errorResponse[4] ));
+                echo json_encode(array("data" => null, "error" => "4", "msg" => $errorResponse[4]));
             }
         } else {
             echo json_encode(array("data" => null, "error" => "1", "msg" => "Debe enviar el search",));
