@@ -36,7 +36,7 @@ botonLogin.addEventListener("click", (event) => {
                         if (rol === 1 || rol === 2) {
                             rediret('views_admin/usuarios_listados.php');
                         } else if (rol === 3) {
-                            respuest('el usuario de productos no esta habilitada', 'info');
+                            rediret('views_admin/productos_informes.php');
                         } else if (rol === 4) {
                             rediret('views_admin/reportar_salida.php');
                         }

@@ -52,14 +52,9 @@ const menuProductos = /*html*/ `
         </p>
     </a>
     <ul class="nav nav-treeview">
+     
         <li class="nav-item">
-            <a href="#" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Crear producto</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="productos_informes.php" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Listado</p>
             </a>
