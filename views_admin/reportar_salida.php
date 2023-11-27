@@ -24,17 +24,17 @@
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand <?php echo $headerStyle; ?>">
-            <?php 
-      include "includes/header.php";
-    ?>
+            <?php
+            include "includes/header.php";
+            ?>
         </nav>
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar <?php echo $lateralStyle; ?> elevation-4">
-            <?php 
-    include "includes/lateralaside.php";
-     ?>
+            <?php
+            include "includes/lateralaside.php";
+            ?>
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
@@ -44,7 +44,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Usuarios</h1>
+                            <h1>REPORTE DE SALIDA</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -62,30 +62,30 @@
 
                 <div class="row">
                     <!-- COLUMNA DE TABLA DE DATOS  -->
-<div class="col-md-12">
-    <div class="card">
-        <div class="card-header bg-success">
-            <h3 class="card-title">salida</h3>
-        </div>
-        <div class="card-body p-0">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>HORA</th>
-<th>FECHA</th>
-<th>CANTIDAD</th>
-<th>PRODUCTO</th>
-<th>FOTO</th>
-<th>EDITAR</th>
-<th>ELIMINAR</th>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header bg-success">
+                                <h3 class="card-title">salida</h3>
+                            </div>
+                            <div class="card-body p-0">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>HORA</th>
+                                            <th>FECHA</th>
+                                            <th>CANTIDAD</th>
+                                            <th>PRODUCTO</th>
+                                            <th>FOTO</th>
+                                            <th>EDITAR</th>
+                                            <th>ELIMINAR</th>
 
-                    </tr>
-                </thead>
-                <tbody id="table_salida"></tbody>
-            </table>
-        </div>
-    </div>
-</div>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_salida"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
 
                 </div><!-- Fin contenido TABLA DE DATO -->
@@ -98,9 +98,9 @@
         <!-- /.content-wrapper -->
 
         <footer class="main-footer">
-            <?php 
-      include "includes/footer.php";
-     ?>
+            <?php
+            include "includes/footer.php";
+            ?>
         </footer>
 
         <!-- Control Sidebar -->

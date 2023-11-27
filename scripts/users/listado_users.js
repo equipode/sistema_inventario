@@ -1,15 +1,5 @@
-let OBJtoken = localStorage.getItem('token');
-let token = JSON.parse(OBJtoken);
-
-if (!token) {
-    rediret('../index.php');
-}
-
 const baseUrl = enviroments.baseUrl;
 const contenido = document.getElementById('contenido');
-
-
-
 fetch(`${baseUrl}/users/users_api.php`)
     .then(response => response.json())
     .then(resp => {

@@ -24,17 +24,17 @@
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand <?php echo $headerStyle; ?>">
-            <?php 
-      include "includes/header.php";
-    ?>
+            <?php
+            include "includes/header.php";
+            ?>
         </nav>
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar <?php echo $lateralStyle; ?> elevation-4">
-            <?php 
-    include "includes/lateralaside.php";
-     ?>
+            <?php
+            include "includes/lateralaside.php";
+            ?>
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
@@ -44,7 +44,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Usuarios</h1>
+                            <h1>Reporte De Entrada</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -81,9 +81,9 @@
         <!-- /.content-wrapper -->
 
         <footer class="main-footer">
-            <?php 
-      include "includes/footer.php";
-     ?>
+            <?php
+            include "includes/footer.php";
+            ?>
         </footer>
 
         <!-- Control Sidebar -->

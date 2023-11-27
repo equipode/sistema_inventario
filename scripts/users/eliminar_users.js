@@ -1,10 +1,3 @@
-let OBJtoken = localStorage.getItem('token');
-let token = JSON.parse(OBJtoken);
-
-if (!token) {
-    rediret('../index.php');
-}
-
 const baseUrl = enviroments.baseUrl;
 const btneleminar = document.getElementById('btn_eliminar');
 const foto = document.getElementById('txtFile');
@@ -29,14 +22,14 @@ fetch(`${baseUrl}/users/users_api.php?id=${id}`)
 btneleminar.addEventListener('click', (event) => {
     event.preventDefault();
     fetch(`${baseUrl}/users/users_api_delete.php`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                iduser: id
-            })
-        }).then(response => response.json())
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            iduser: id
+        })
+    }).then(response => response.json())
         .then(resp => {
             console.log(resp)
             respuest('Usuario eliminado :)', 'success');

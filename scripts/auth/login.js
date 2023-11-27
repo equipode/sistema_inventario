@@ -32,7 +32,14 @@ botonLogin.addEventListener("click", (event) => {
                     if (resp.error === '0') {
                         localStorage.removeItem('token');
                         localStorage.setItem('token', JSON.stringify(resp.data));
-                        rediret('views_admin/usuarios_listados.php');
+                        const rol = resp.data.rolUser;
+                        if (rol === 1 || rol === 2) {
+                            rediret('views_admin/usuarios_listados.php');
+                        } else if (rol === 3) {
+                            respuest('el usuario de productos no esta habilitada', 'info');
+                        } else if (rol === 4) {
+                            rediret('views_admin/reportar_salida.php');
+                        }
                     } else {
                         respuest(resp.msg, 'info');
                     }

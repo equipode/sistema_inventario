@@ -1,10 +1,3 @@
-let OBJtoken = localStorage.getItem('token');
-let token = JSON.parse(OBJtoken);
-
-if (!token) {
-    rediret('../index.php');
-}
-
 const baseUrl = enviroments.baseUrl;
 const btnguardar = document.getElementById('btn_guardar');
 const foto = document.getElementById('txtFile');
@@ -35,9 +28,9 @@ btnguardar.addEventListener('click', (event) => {
     formData.append('rol', cargo);
     formData.append('photo', photo);
     fetch(`${baseUrl}/users/users_api_update.php`, {
-            method: 'POST',
-            body: formData
-        })
+        method: 'POST',
+        body: formData
+    })
         .then(response => response.json())
         .then(data => {
             console.log(data);
