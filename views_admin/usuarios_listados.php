@@ -24,17 +24,17 @@
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand <?php echo $headerStyle; ?>">
-            <?php 
-      include "includes/header.php";
-    ?>
+            <?php
+            include "includes/header.php";
+            ?>
         </nav>
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar <?php echo $lateralStyle; ?> elevation-4">
-            <?php 
-    include "includes/lateralaside.php";
-     ?>
+            <?php
+            include "includes/lateralaside.php";
+            ?>
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
@@ -49,7 +49,8 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Listado</li>
+                                <li class="breadcrumb-item active"><a href="usuarios_crear.php">Crear Usuario</a>
+                                </li>
                             </ol>
                         </div>
                     </div>
@@ -63,10 +64,10 @@
                 <div class="row">
                     <!-- COLUMNA DE TABLA DE DATOS  -->
 
-                <div class="col-12 col-sm-12 col-md-12">
-                   <div id="contenido"></div>
-                    
-                </div>
+                    <div class="col-12 col-sm-12 col-md-12">
+                        <div id="contenido"></div>
+
+                    </div>
 
 
 
@@ -82,9 +83,9 @@
         <!-- /.content-wrapper -->
 
         <footer class="main-footer">
-            <?php 
-      include "includes/footer.php";
-     ?>
+            <?php
+            include "includes/footer.php";
+            ?>
         </footer>
 
         <!-- Control Sidebar -->

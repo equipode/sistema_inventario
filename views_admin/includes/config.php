@@ -1,4 +1,3 @@
-<?php 
-	$headerStyle = 'navbar-dark navbar-indigo';
-	$lateralStyle = 'sidebar-dark-indigo';
-?>
+<?php
+$headerStyle = 'navbar-dark navbar-dark';
+$lateralStyle = 'sidebar-dark-indigo';

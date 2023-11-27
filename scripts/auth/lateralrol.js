@@ -4,15 +4,17 @@ if (!token) {
     window.location.href = '../index.php';
 }
 
-const userLateral = document.getElementById('userRol');
-const userHeader = document.getElementById('userHeader');
-const menuUser = document.getElementById('menuUser');
-const btnLogaut = document.getElementById('btn_logaut');
+const userLateral = document.getElementById('userRol'),
+    userHeader = document.getElementById('userHeader'),
+    menuUser = document.getElementById('menuUser'),
+    btnLogaut = document.getElementById('btn_logaut');
+
 document.getElementById('imgUser').src = token.foto;
 document.getElementById('user_editar').href = `usuarios_editar.php?id=${token.id_user}`;
 userLateral.innerHTML = token.user;
 userHeader.innerHTML = token.user;
 
+// menus del lateral laside
 const menuUsuarios = /*html*/`
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link ">

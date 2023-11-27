@@ -1,5 +1,5 @@
 <!-- Brand Logo -->
-<a href="index.php" class="brand-link">
+<a href="#" class="brand-link">
     <img src="../imgs/logo.JPG" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
     <span class="brand-text font-weight-light">Sistema <b>Inventario</b></span>
 </a>
@@ -18,8 +18,7 @@
 
     <!-- Sidebar Menu -->
     <nav class="mt-2">
-        <ul id="menuUser" class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-            data-accordion="false">
+        <ul id="menuUser" class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
 
 

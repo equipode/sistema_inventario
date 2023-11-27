@@ -24,17 +24,17 @@
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand <?php echo $headerStyle; ?>">
-            <?php 
-      include "includes/header.php";
-    ?>
+            <?php
+            include "includes/header.php";
+            ?>
         </nav>
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar <?php echo $lateralStyle; ?> elevation-4">
-            <?php 
-    include "includes/lateralaside.php";
-     ?>
+            <?php
+            include "includes/lateralaside.php";
+            ?>
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
@@ -49,7 +49,8 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Crear Usuario</li>
+                                <li class="breadcrumb-item active"><a href="usuarios_listados.php">Listado De
+                                        Usuarios</a></li>
                             </ol>
                         </div>
                     </div>
@@ -84,8 +85,7 @@
                                             <div class="col-md-12 col-sm-12 col-12">
                                                 <div class="form-group">
                                                     <label for="txtUser">Usuario</label>
-                                                    <input type="text" class="form-control" id="txtUser" name="txtUser"
-                                                        placeholder="Digite usuario...">
+                                                    <input type="text" class="form-control" id="txtUser" name="txtUser" placeholder="Digite usuario...">
                                                 </div>
                                             </div>
 
@@ -93,8 +93,7 @@
                                             <div class="col-md-12 col-sm-12 col-12">
                                                 <div class="form-group">
                                                     <label for="txtContraseña">Contraseña</label>
-                                                    <input type="text" class="form-control" id="txtContraseña"
-                                                        name="txtContraseña" placeholder="Digite su contraseña">
+                                                    <input type="text" class="form-control" id="txtContraseña" name="txtContraseña" placeholder="Digite su contraseña">
                                                 </div>
                                             </div>
 
@@ -116,10 +115,8 @@
                                                     <label for="txtFile">Subir Archivos (File)</label>
                                                     <div class="input-group">
                                                         <div class="custom-file">
-                                                            <input type="file" class="custom-file-input" id="txtFile"
-                                                                name="txtFile">
-                                                            <label class="custom-file-label"
-                                                                for="txtFile">Seleccionar</label>
+                                                            <input type="file" class="custom-file-input" id="txtFile" name="txtFile">
+                                                            <label class="custom-file-label" for="txtFile">Seleccionar</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -156,9 +153,9 @@
         <!-- /.content-wrapper -->
 
         <footer class="main-footer">
-            <?php 
-      include "includes/footer.php";
-     ?>
+            <?php
+            include "includes/footer.php";
+            ?>
         </footer>
 
         <!-- Control Sidebar -->
