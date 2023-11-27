@@ -18,7 +18,7 @@ class DBConfig
 		$this->error = true;
 	}
 
-	function conexion($host = 'localhost', $user = 'root', $pass = '', $db = 'db_inventario')
+	function conexion($host = 'localhost', $user = 'root', $pass = '123456789', $db = 'db_inventario')
 	{  // connection function
 		$this->error_message = "";
 		$this->host = $host;

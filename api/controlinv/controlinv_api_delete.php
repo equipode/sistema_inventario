@@ -4,7 +4,6 @@ include '../../config/config.php';
 $objAPI = new controlInvAPI();
 
 $method = $_SERVER['REQUEST_METHOD'];
-header("Content-Type: Application/json");
 switch ($method) {
 
     case 'POST':

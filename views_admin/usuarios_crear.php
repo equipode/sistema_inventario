@@ -93,7 +93,7 @@
                                             <div class="col-md-12 col-sm-12 col-12">
                                                 <div class="form-group">
                                                     <label for="txtContraseña">Contraseña</label>
-                                                    <input type="text" class="form-control" id="txtContraseña" name="txtContraseña" placeholder="Digite su contraseña">
+                                                    <input type="password" class="form-control" id="txtContraseña" name="txtContraseña" placeholder="Digite su contraseña">
                                                 </div>
                                             </div>
 

@@ -9,6 +9,23 @@ fetch(`${baseUrl}/users/users_api.php`)
             content = 'no hay usuarios registrados';
         } else {
             resp.data.forEach((usuario) => {
+                let nombTipoUser = '';
+                switch (usuario.rolUser) {
+                    case 1:
+                        nombTipoUser = 'Administrador';
+                        break;
+                    case 2:
+                        nombTipoUser = 'Administrador Usuarios';
+                        break;
+                    case 3:
+                        nombTipoUser = 'Administrador Productos';
+                        break;
+                    case 4:
+                        nombTipoUser = 'Administrador Control Inventario';
+                        break;
+                    default:
+                        nombTipoUser = '';
+                }
                 content += /*html*/`
                 <div class="card bg-light">
                     <div class="card-body pt-0">
@@ -20,7 +37,7 @@ fetch(`${baseUrl}/users/users_api.php`)
                                     
                                     <li class="small"><span class="fa-li"><i
                                                 class="fas fa-lg fa-user-lock"></i></span><b>Tipo De User:</b>
-                                        administrador</li>
+                                        ${nombTipoUser}</li>
                                 </ul>
                             </div>
                             <div class="col-5 text-center">

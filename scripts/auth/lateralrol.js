@@ -94,15 +94,22 @@ const menuInventario = /*html*/ `
 </li>
 `;
 
-if (token.rolUser === 1) {
-    const menuUserPrincipal = menuUsuarios + menuProductos + menuInventario;
-    menuUser.innerHTML = menuUserPrincipal;
-} else if (token.rolUser === 2) {
-    menuUser.innerHTML = menuUsuarios;
-} else if (token.rolUser === 3) {
-    menuUser.innerHTML = menuProductos;
-} else if (token.rolUser === 4) {
-    menuUser.innerHTML = menuInventario;
+switch (token.rolUser) {
+    case 1:
+        const menuUserPrincipal = menuUsuarios + menuProductos + menuInventario;
+        menuUser.innerHTML = menuUserPrincipal;
+        break;
+    case 2:
+        menuUser.innerHTML = menuUsuarios;
+        break;
+    case 3:
+        menuUser.innerHTML = menuProductos;
+        break;
+    case 4:
+        menuUser.innerHTML = menuInventario;
+        break;
+    default:
+        menuUser.innerHTML = '';
 }
 
 btnLogaut.addEventListener('click', (event) => {
