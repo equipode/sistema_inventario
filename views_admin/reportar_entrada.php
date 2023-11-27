@@ -62,12 +62,32 @@
 
                 <div class="row">
                     <!-- COLUMNA DE TABLA DE DATOS  -->
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header bg-success">
+                                <h3 class="card-title">HISTORIAL DE ENTRADA</h3>
+                            </div>
+                            <div class="card-body table-responsive p-0" style="height: 500px;">
+                                <table class="table table-head-fixed text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>HORA</th>
+                                            <th>FECHA</th>
+                                            <th>SALIDA</th>
+                                            <th>ENTRADA</th>
+                                            <th>PRODUCTO</th>
+                                            <th>FOTO</th>
+                                            <th>EDITAR</th>
+                                            <th>ELIMINAR</th>
 
-
-
-                    <div id="contenido">
-
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_entrada"></tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
+
 
 
 

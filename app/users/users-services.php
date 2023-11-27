@@ -3,10 +3,12 @@ include "../../controllers/users/controller_consultas_users_api.php";
 include '../../validations/validateCampos.php';
 include '../../saveImages/saveImage.php';
 
+
 class usersAPI
 {
     function getAllUsers()
     {
+        include '../../config/config.php';
         $objDB = new ExtraerDatos();
         $data = array();
 

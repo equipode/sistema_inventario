@@ -15,8 +15,8 @@ fetch(`${baseUrl}/controlinv/controlinv_api.php`)
                 <td>${element.cantidad_salida}</td>
                 <td>${element.nombre_product}</td>
                 <td><img src="${element.photo_producto}" alt="${element.nombre_product}" width="50px" height="50px"></td>
-                <td>${element.pk_cont}</td>
-                <td>${element.pk_cont}</td>
+                <td><a href="${element.pk_cont}" aria-label="editar reporte de salida" class="btn btn-info"><i class="fa fa-edit"></i></a></td>
+                <td><a href="${element.pk_cont}" aria-label="eliminar reporte de salida" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
              </tr>
             `;
         });
